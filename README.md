@@ -93,6 +93,11 @@ data/
  ├── file1.pdf
  ├── file2.txt
 ```
+Place your queries inside the `queries.txt` file:
+
+```
+each line should have one query
+```
 
 ---
 
