@@ -1,0 +1,130 @@
+
+        <html>
+        <head>
+            <title>RAG Evaluation Report</title>
+            <style>
+                body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; background-color: #f9f9f9; }
+                table { border-collapse: collapse; width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+                th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+                th { background-color: #2c3e50; color: white; }
+                tr:hover { background-color: #f1f1f1; }
+                .summary-card { background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 0 10px rgba(0,0,0,0.05); display: inline-block; min-width: 300px; }
+                h1 { color: #2c3e50; }
+            </style>
+        </head>
+        <body>
+            <h1>📊 RAG Evaluation Report</h1>
+            <div class="summary-card">
+                <h2>Performance Summary</h2>
+                <p><strong>Total Queries:</strong> 10</p>
+                <p><strong>Valid Evaluations:</strong> 10</p>
+                <p><strong>Strategy A Wins:</strong> 3</p>
+                <p><strong>Strategy B Wins:</strong> 7</p>
+                <hr>
+                <p><strong>Avg Score A:</strong> 4.9 / 10</p>
+                <p><strong>Avg Score B:</strong> 6.7 / 10</p>
+            </div>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Query</th>
+                    <th>A Score</th>
+                    <th>B Score</th>
+                    <th>Winner</th>
+                    <th>Reasoning</th>
+                </tr>
+                
+            <tr>
+                <td>1</td>
+                <td>How do government interventions in telecommunications, such as internet shutdowns or app bans, redefine the concept of the public interest?</td>
+                <td>5</td>
+                <td>5</td>
+                <td style="font-weight: bold; color: #3498db">A</td>
+                <td>Both strategies are identical, but Strategy A is presented first, making it the default choice. However, both have the same scores due to redundancy.</td>
+            </tr>
+            
+            <tr>
+                <td>2</td>
+                <td>Explain the impact of non-conservative forces on the total mechanical energy of a system during a physical transformation.</td>
+                <td>5</td>
+                <td>8</td>
+                <td style="font-weight: bold; color: #2ecc71">B</td>
+                <td>Strategy B provides a more comprehensive explanation of nonconservative forces and their impact on mechanical energy, with no redundancy.</td>
+            </tr>
+            
+            <tr>
+                <td>3</td>
+                <td>Compare the efficiency and mechanism of ATP production between aerobic respiration and anaerobic fermentation.</td>
+                <td>5</td>
+                <td>5</td>
+                <td style="font-weight: bold; color: #2ecc71">B</td>
+                <td>Both strategies are identical in content, but Strategy B is presented as a separate entity, which may imply a different context or source, thus slightly favoring it in terms of presentation.</td>
+            </tr>
+            
+            <tr>
+                <td>4</td>
+                <td>How do the principles of fluid viscosity and Poiseuille's Law apply to the human circulatory system during periods of physical exertion?</td>
+                <td>6</td>
+                <td>6</td>
+                <td style="font-weight: bold; color: #3498db">A</td>
+                <td>Both strategies are similar in content, but Strategy A has a slight edge due to its more coherent presentation of the principles of fluid viscosity and Poiseuille's Law in relation to the circulatory system.</td>
+            </tr>
+            
+            <tr>
+                <td>5</td>
+                <td>What are the primary differences in how normative and empirical political science address the legitimacy of institutional power?</td>
+                <td>2</td>
+                <td>2</td>
+                <td style="font-weight: bold; color: #2ecc71">B</td>
+                <td>Both strategies are identical in content, but Strategy B has a slight edge as it presents the information in a more varied format, despite the same level of redundancy.</td>
+            </tr>
+            
+            <tr>
+                <td>6</td>
+                <td>What are medusa and polyps in the context of marine biology, and how do their life cycles differ?</td>
+                <td>5</td>
+                <td>9</td>
+                <td style="font-weight: bold; color: #2ecc71">B</td>
+                <td>Strategy B provides a more comprehensive and relevant overview of medusa and polyps, including their life cycles, while avoiding redundancy.</td>
+            </tr>
+            
+            <tr>
+                <td>7</td>
+                <td>Explain adaptive radiation.</td>
+                <td>1</td>
+                <td>10</td>
+                <td style="font-weight: bold; color: #2ecc71">B</td>
+                <td>Strategy B directly addresses the query about adaptive radiation, providing relevant information and examples, while Strategy A is completely off-topic and redundant.</td>
+            </tr>
+            
+            <tr>
+                <td>8</td>
+                <td>explain coeloms and acoelomates.</td>
+                <td>6</td>
+                <td>7</td>
+                <td style="font-weight: bold; color: #2ecc71">B</td>
+                <td>Strategy B provides a more comprehensive explanation of coeloms and includes relevant information about pseudocoelomates, making it more informative overall.</td>
+            </tr>
+            
+            <tr>
+                <td>9</td>
+                <td>explain magnetism and how it works.</td>
+                <td>6</td>
+                <td>7</td>
+                <td style="font-weight: bold; color: #2ecc71">B</td>
+                <td>Strategy B provides a broader context and more applications of magnetism, making it more relevant and comprehensive despite some redundancy.</td>
+            </tr>
+            
+            <tr>
+                <td>10</td>
+                <td>What is otto cycle and how does it work?</td>
+                <td>8</td>
+                <td>8</td>
+                <td style="font-weight: bold; color: #3498db">A</td>
+                <td>Both strategies provide the same information, but Strategy A is presented first, making it the primary choice.</td>
+            </tr>
+            
+            </table>
+        </body>
+        </html>
+        
