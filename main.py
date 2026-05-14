@@ -10,6 +10,51 @@ from evaluator import RAGEvaluatorPipeline
 logger = logging.getLogger(__name__)
 
 
+def load_queries_from_file(file_path="queries.txt", limit=None):
+    """
+    Load queries from a text file.
+
+    Args:
+        file_path (str): Path to queries file
+        limit (int, optional): Max number of queries to return (None = all)
+
+    Returns:
+        List[str]: List of queries
+    """
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            queries = [
+                line.strip()
+                for line in f
+                if line.strip() and not line.strip().startswith("#")
+            ]
+
+        if not queries:
+            logger.warning("No valid queries found in file.")
+            return []
+
+        seen = set()
+        unique_queries = []
+        for q in queries:
+            if q not in seen:
+                unique_queries.append(q)
+                seen.add(q)
+
+        if limit:
+            unique_queries = unique_queries[:limit]
+
+        logger.info(f"Loaded {len(unique_queries)} queries from {file_path}")
+        return unique_queries
+
+    except FileNotFoundError:
+        logger.error(f"File not found: {file_path}")
+        return []
+
+    except Exception as e:
+        logger.error(f"Error reading queries file: {e}")
+        return []
+
+
 def save_to_json(queries, all_normal, all_expanded):
     output = []
     for i, q in enumerate(queries):
@@ -43,18 +88,11 @@ def main():
 
         retriever = RAGRetriever(db)
 
-        test_queries = [
-            "How do government interventions in telecommunications, such as internet shutdowns or app bans, redefine the concept of the public interest?",
-            "Explain the impact of non-conservative forces on the total mechanical energy of a system during a physical transformation.",
-            "Compare the efficiency and mechanism of ATP production between aerobic respiration and anaerobic fermentation.",
-            "How do the principles of fluid viscosity and Poiseuille's Law apply to the human circulatory system during periods of physical exertion?",
-            "What are the primary differences in how normative and empirical political science address the legitimacy of institutional power?",
-            "What are medusa and polyps in the context of marine biology, and how do their life cycles differ?",
-            "Explain adaptive radiation.",
-            "explain coeloms and acoelomates.",
-            "explain magnetism and how it works.",
-            "What is otto cycle and how does it work?"
-        ]
+        test_queries = load_queries_from_file("queries.txt")
+
+        if not test_queries:
+            logger.error("No queries found. Please check queries.txt")
+            return
 
         all_normal_res, all_expanded_res = [], []
 
